@@ -10,7 +10,7 @@ df = pd.read_csv(data_dir, sep=',')
 
 tr_inp, tr_labels, te_inp, te_labels = train_test_split(df)
 
-n_neighbors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+n_neighbors = [1, 2, 5, 10, 15, 20, 30, tr_inp.shape[0]]
 # n_neighbors = int(input("n_neighbors: "))
 
 acc_list = np.array([])
