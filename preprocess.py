@@ -13,7 +13,10 @@ def load_data(data_dir, labels_dir, labels_target_dir):
     for filename in os.listdir(jaffe_dir):
         if filename.endswith(".tiff"):
             im = Image.open(os.path.join(jaffe_dir, filename))
-            imarray = np.array(im)
+            # Convert tiff to rgb
+            im_rgb = Image.new("RGB", im.size)
+            im_rgb.paste(im)
+            imarray = np.array(im_rgb)
             data = np.append(data, imarray)
             name = filename.replace('.tiff', '')
             img_names = np.append(img_names, name)
