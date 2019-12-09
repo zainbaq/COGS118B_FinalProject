@@ -10,12 +10,11 @@ df = pd.read_csv(data_dir, sep=',')
 
 tr_inp, tr_labels, te_inp, te_labels = train_test_split(df)
 
-n_neighbors = [1, 2, 5, 10, 15, 20, 30, tr_inp.shape[0]]
+n_neighbors = range(1, tr_inp.shape[0])
 # n_neighbors = int(input("n_neighbors: "))
 
 acc_list = np.array([])
 for n in n_neighbors:
-
     clf = KNeighborsClassifier(n_neighbors=n)
     clf.fit(tr_inp, tr_labels)
 
